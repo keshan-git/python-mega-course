@@ -29,37 +29,49 @@ def population_style_function(param):
 
     return {'fillColor': color}
 
-map = folium.Map(location=[38.58, -99.09], zoom_start=6)
-# map.add_child(folium.Marker(location=[38.2, -99.1], popup='Test marker', icon=folium.Icon(color='green')))
 
-group = folium.FeatureGroup(name='Markers')
-map.add_child(group)
+def create_volcano_marker_layer():
+    file_name = 'data/volcanoes.txt'
+    print('Loading data from the {}'.format(file_name))
+    data_set = pd.read_csv(file_name)
 
-group.add_child(folium.Marker(location=[38.2, -99.1], popup='Test marker', icon=folium.Icon(color='green')))
-group.add_child(folium.Marker(location=[37.2, -97.1], popup='Test marker', icon=folium.Icon(color='green')))
+    volcano_group = folium.FeatureGroup(name='Volcano Markers')
 
-for coordinates in [[36.2, -98.1], [36.2, -97.1]]:
-    group.add_child(folium.Marker(location=coordinates, popup='Test marker', icon=folium.Icon(color='green')))
-    group.add_child(folium.Marker(location=coordinates, popup='Test marker', icon=folium.Icon(color='green')))
+    for index, row in data_set.iterrows():
+        volcano_group.add_child(folium.Marker(location=[row['LAT'], row['LON']],
+                                              popup=create_popup(row), icon=create_icon(row)))
+    return volcano_group
 
-volcano_group = folium.FeatureGroup(name='Volcanoe Markers')
-map.add_child(volcano_group)
 
-data_set = pd.read_csv('data/volcanoes.txt')
+def create_population_layer():
+    file_name = 'data/world.json'
+    print('Loading data from the {}'.format(file_name))
+    data_json = open(file_name, 'r', encoding='utf-8-sig').read()
 
-# for lat, lon in zip(data_set['LAT'], data_set['LON']):
-#     group.add_child(folium.Marker(location=[lat, lon], popup='Test marker', icon=folium.Icon(color='green')))
+    word_group = folium.FeatureGroup(name='Population Layer')
+    word_group.add_child(folium.GeoJson(data=data_json, style_function=population_style_function))
 
-for index, row in data_set.iterrows():
-    group.add_child(folium.Marker(location=[row['LAT'], row['LON']], popup=create_popup(row), icon=create_icon(row)))
+    return word_group
 
-word_group = folium.FeatureGroup(name='World Layer')
-map.add_child(word_group)
 
-data_json = open("data/world.json", 'r', encoding='utf-8-sig').read()
-word_group.add_child(folium.GeoJson(data=data_json, style_function=population_style_function))
+def main():
+    print('Creating new map instance')
+    folium_map = folium.Map(location=[38.58, -99.09], zoom_start=6)
 
-map.add_child(folium.LayerControl())
+    print('Creating Volcano details markers')
+    volcano_group = create_volcano_marker_layer()
+    folium_map.add_child(volcano_group)
 
-map.save('target/webmap.html')
-print('WebMap is generated in target folder')
+    print('Creating Population Layer')
+    population_group = create_population_layer()
+    folium_map.add_child(population_group)
+
+    folium_map.add_child(folium.LayerControl())
+
+    target_file = 'target/webmap.html'
+    folium_map.save(target_file)
+    print('WebMap is generated in target folder - {}'.format(target_file))
+
+
+if __name__ == '__main__':
+    main()
