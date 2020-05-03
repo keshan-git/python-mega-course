@@ -54,6 +54,17 @@ def create_population_layer():
     return word_group
 
 
+def create_us_state_layer():
+    file_name = 'data/gz_2010_us_040_00_500k.json'
+    print('Loading data from the {}'.format(file_name))
+    data_json = open(file_name, 'r', encoding='utf-8-sig').read()
+
+    word_group = folium.FeatureGroup(name='US States Layer')
+    word_group.add_child(folium.GeoJson(data=data_json))
+
+    return word_group
+
+
 def main():
     print('Creating new map instance')
     folium_map = folium.Map(location=[38.58, -99.09], zoom_start=6)
@@ -65,6 +76,10 @@ def main():
     print('Creating Population Layer')
     population_group = create_population_layer()
     folium_map.add_child(population_group)
+
+    print('Creating US States Layer')
+    states_group = create_us_state_layer()
+    folium_map.add_child(states_group)
 
     folium_map.add_child(folium.LayerControl())
 
