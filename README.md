@@ -6,6 +6,7 @@ Name | Description
 Interactive Dictionary | Simple command line application to get definition of words based on in-memory/database source.
 Web Map | Web-map with multiple layers and markers, using Folium
 Website Blocker | Simple python script to block (predefine) websites during the predefine time window
+Static Web Side | Simple web side with Flask and Jinja templating
 
 ### Application 01 - Interactive Dictionary
 Simple command line application to get definition of words based on in-memory/database source.
@@ -27,3 +28,8 @@ Source:
 ### Application 03 - Website Blocker 
 Simple python script to block (predefine) websites during the predefine time window
 ![Image description](doc/web_blocker.jpg)
+
+### Application 04 - Static Web Side
+Simple web side with Flask and Jinja templating
+
+External Modules - [_flask, jinja_]

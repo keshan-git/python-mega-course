@@ -1,0 +1,15 @@
+<html>
+<body>
+    <div>
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="{{ url_for('route_home') }}">Home</a> </li>
+            <li><a href="{{ url_for('route_about') }}">About</a> </li>
+        </ul>
+    </div>
+    <div>
+        {%block content%}
+        {%endblock%}
+    </div>
+</body>
+</html>
