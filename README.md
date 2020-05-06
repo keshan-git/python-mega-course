@@ -33,3 +33,5 @@ Simple python script to block (predefine) websites during the predefine time win
 Simple web side with Flask and Jinja templating
 
 External Modules - [_flask, jinja_]
+
+https://k-sample-app.herokuapp.com/about
