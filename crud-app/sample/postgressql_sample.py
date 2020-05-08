@@ -17,7 +17,7 @@ def create_table():
 def insert_data(item, quantity, price):
     connection = create_connection()
     cursor = connection.cursor()
-    cursor.execute('INSERT INTO store VALUES(?, ?, ?)', (item, quantity, price))
+    cursor.execute('INSERT INTO store VALUES(%s, %s, %s)', (item, quantity, price))
     connection.commit()
     connection.close()
 
@@ -25,7 +25,7 @@ def insert_data(item, quantity, price):
 def update_data(item, quantity, price):
     connection = create_connection()
     cursor = connection.cursor()
-    cursor.execute('UPDATE store SET quantity=?, price=? WHERE item=?', (quantity, price, item))
+    cursor.execute('UPDATE store SET quantity=%s, price=%s WHERE item=%s', (quantity, price, item))
     connection.commit()
     connection.close()
 
@@ -33,7 +33,7 @@ def update_data(item, quantity, price):
 def delete_data(item):
     connection = create_connection()
     cursor = connection.cursor()
-    cursor.execute('DELETE FROM store WHERE item=?', (item,))
+    cursor.execute('DELETE FROM store WHERE item=%s', (item,))
     connection.commit()
     connection.close()
 

@@ -35,3 +35,9 @@ Simple web side with Flask and Jinja templating
 External Modules - [_flask, jinja_]
 
 https://k-sample-app.herokuapp.com/about
+
+### Application 05 - Windows GUI
+Simple GUI for CRUD operations
+External Modules - [_sqlite3, tkinter_]
+
+![Image description](doc/book_store.JPG)
