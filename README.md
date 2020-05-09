@@ -8,6 +8,7 @@ Web Map | Web-map with multiple layers and markers, using Folium
 Website Blocker | Simple python script to block (predefine) websites during the predefine time window
 Static Web Side | Simple web side with Flask and Jinja templating
 Windows GUI | Simple GUI for CRUD operations
+Motion Detection | Detect any motion on a webcam view port, record detection timestamp and visual the result in time series graph
 
 ### Application 01 - Interactive Dictionary
 Simple command line application to get definition of words based on in-memory/database source.
@@ -42,3 +43,10 @@ Simple GUI for CRUD operations
 External Modules - [_sqlite3, tkinter_]
 
 ![Image description](doc/book_store.JPG)
+
+### Application 06 - Motion Detection
+Detect any motion on a webcam view port, record detection timestamp and visual the result in time series graph
+
+External Modules - [_open-cv, scikit-image, numpy_]
+
+![Image description](doc/motion_detect.JPG)
