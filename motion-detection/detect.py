@@ -15,7 +15,7 @@ class MotionDetector:
         self.background_frame = None
 
         self.detected = False
-        self.time_stamp = datetime.now()
+        self.timestamp = datetime.now()
         self.result_df = pd.DataFrame(columns=['Start', 'End'])
 
     def __del__(self):
@@ -25,12 +25,12 @@ class MotionDetector:
     def __on_motion_detect__(self):
         if self.detected:
             print('Object removed from the view port')
-            record = {'Start': self.time_stamp, 'End': datetime.now()}
+            record = {'Start': self.timestamp, 'End': datetime.now()}
             print('New record added - {}'.format(record))
             self.result_df = self.result_df.append(record, ignore_index=True )
         else:
             print('New object entered to the view port')
-            self.time_stamp = datetime.now()
+            self.timestamp = datetime.now()
 
     def start(self):
         print('Waiting for Background Frame... Press [Y] when ready')
@@ -59,7 +59,6 @@ class MotionDetector:
 
             contours_frame = frame.copy()
             detected_frame = frame.copy()
-            frame.copy()
 
             current_detected = score < 0.89
             if current_detected != self.detected:
