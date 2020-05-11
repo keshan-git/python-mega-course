@@ -50,4 +50,4 @@ Detect any motion on a webcam view port, record detection timestamp and visual t
 External Modules - [_open-cv, scikit-image, numpy_]
 
 ![Image description](doc/motion_detect.JPG)
-![Image description](doc/motion_detect_graph.JPG)
+![Image description](doc/motion_detect_graph.jpg)
