@@ -9,6 +9,7 @@ Website Blocker | Simple python script to block (predefine) websites during the 
 Static Web Side | Simple web side with Flask and Jinja templating
 Windows GUI | Simple GUI for CRUD operations
 Motion Detection | Detect any motion on a webcam view port, record detection timestamp and visual the result in time series graph
+Web Scrapper | Extract real state data with web scrapper
 
 ### Application 01 - Interactive Dictionary
 Simple command line application to get definition of words based on in-memory/database source.
@@ -51,3 +52,10 @@ External Modules - [_open-cv, scikit-image, numpy_]
 
 ![Image description](doc/motion_detect.JPG)
 ![Image description](doc/motion_detect_graph.jpg)
+
+### Application 07 - Web Scrapper
+Extract real state data with web scrapper
+
+External Modules - [_request, bs4, pandas_]
+
+![Image description](doc/web-scrape.JPG)
