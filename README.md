@@ -10,6 +10,7 @@ Static Web Side | Simple web side with Flask and Jinja templating
 Windows GUI | Simple GUI for CRUD operations
 Motion Detection | Detect any motion on a webcam view port, record detection timestamp and visual the result in time series graph
 Web Scrapper | Extract real state data with web scrapper
+Stock Market Data Visualizer | Visualize stock market data
 
 ### Application 01 - Interactive Dictionary
 Simple command line application to get definition of words based on in-memory/database source.
@@ -59,3 +60,10 @@ Extract real state data with web scrapper
 External Modules - [_request, bs4, pandas_]
 
 ![Image description](doc/web-scrape.JPG)
+
+### Application 08 - Stock Market Data Visualizer
+Visualize stock market data
+
+External Modules - [_bokeh, pandas, pandas_datareader, Flask_]
+
+![Image description](doc/stock-market.JPG)
